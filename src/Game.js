@@ -21,6 +21,8 @@ function nextCellValue(grid, row, col) {
       return 0;
     } else if (sum === 2 || sum === 3) {
       return 1;
+    } else if (sum === 4) {
+      return 0;
     }
   }
 }
