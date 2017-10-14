@@ -14,6 +14,10 @@ class Grid extends React.Component {
 
     const context = canvas.getContext("2d");
 
+    this.paintGrid(context);
+  }
+
+  paintGrid(context) {
     for (let i = 0; i < this.props.nRows; i += 1) {
       for (let j = 0; j < this.props.nCols; j += 1) {
         if (this.props.grid[i][j] === 0) {
