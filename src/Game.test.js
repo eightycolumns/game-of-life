@@ -24,4 +24,16 @@ describe("a dead cell", () => {
       expect(nextCellValue(grid, 1, 1)).toBe(0);
     });
   });
+
+  describe("with 3 live neighbors", () => {
+    it("is born", () => {
+      const grid = [
+        [1, 1, 1],
+        [0, 0, 0],
+        [0, 0, 0]
+      ];
+
+      expect(nextCellValue(grid, 1, 1)).toBe(1);
+    });
+  });
 });
