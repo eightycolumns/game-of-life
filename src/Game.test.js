@@ -1,4 +1,4 @@
-import {nextCellValue} from "./Game";
+import {nextGrid, nextCellValue} from "./Game";
 
 describe("a dead cell", () => {
   describe("with 0 live neighbors", () => {
@@ -133,5 +133,23 @@ describe("a live cell", () => {
 
       expect(nextCellValue(grid, 1, 1)).toBe(0);
     });
+  });
+});
+
+describe("a block", () => {
+  it("is stable", () => {
+    const grid = [
+      [0, 0, 0, 0],
+      [0, 1, 1, 0],
+      [0, 1, 1, 0],
+      [0, 0, 0, 0]
+    ];
+
+    expect(nextGrid(grid)).toEqual([
+      [0, 0, 0, 0],
+      [0, 1, 1, 0],
+      [0, 1, 1, 0],
+      [0, 0, 0, 0]
+    ]);
   });
 });
