@@ -11,11 +11,9 @@ function nextCellValue(grid, row, col) {
   );
 
   if (grid[row][col] === 0) {
-    if (sum < 3) {
-      return 0;
-    } else if (sum === 3) {
+    if (sum === 3) {
       return 1;
-    } else if (sum > 3) {
+    } else {
       return 0;
     }
   }
