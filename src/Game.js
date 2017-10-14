@@ -1,14 +1,6 @@
 function nextGrid(grid) {
   const nextGrid = [];
-  const wrappedGrid = copyGrid(grid);
-
-  wrappedGrid.splice(0, 0, wrappedGrid[wrappedGrid.length - 1].slice());
-  wrappedGrid.push(wrappedGrid[1].slice());
-
-  wrappedGrid.forEach(row => {
-    row.splice(0, 0, row[row.length - 1]);
-    row.push(row[1]);
-  });
+  const wrappedGrid = wrapGrid(grid);
 
   for (let i = 0; i < grid.length; i += 1) {
     nextGrid.push([]);
@@ -19,6 +11,20 @@ function nextGrid(grid) {
   }
 
   return nextGrid;
+}
+
+function wrapGrid(grid) {
+  const wrappedGrid = copyGrid(grid);
+
+  wrappedGrid.splice(0, 0, wrappedGrid[wrappedGrid.length - 1].slice());
+  wrappedGrid.push(wrappedGrid[1].slice());
+
+  wrappedGrid.forEach(row => {
+    row.splice(0, 0, row[row.length - 1]);
+    row.push(row[1]);
+  });
+
+  return wrappedGrid;
 }
 
 function copyGrid(grid) {
