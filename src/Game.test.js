@@ -296,3 +296,21 @@ describe("a pulsar", () => {
     ]);
   });
 });
+
+describe("the grid", () => {
+  it("is wrapped vertically", () => {
+    const grid = [
+      [0, 1, 0, 1, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0]
+    ];
+
+    expect(nextGrid(grid)).toEqual([
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0]
+    ]);
+  });
+});
