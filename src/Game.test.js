@@ -61,3 +61,17 @@ describe("a dead cell", () => {
     });
   });
 });
+
+describe("a live cell", () => {
+  describe("with 0 live neighbors", () => {
+    it("dies", () => {
+      const grid = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+      ];
+
+      expect(nextCellValue(grid, 1, 1)).toBe(0);
+    });
+  });
+});
