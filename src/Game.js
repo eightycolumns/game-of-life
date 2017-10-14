@@ -1,3 +1,17 @@
+function initialGrid(width, height) {
+  const initialGrid = [];
+
+  for (let i = 0; i < height; i += 1) {
+    initialGrid.push([]);
+
+    for (let j = 0; j < width; j += 1) {
+      initialGrid[i][j] = Math.round(Math.random());
+    }
+  }
+
+  return initialGrid;
+}
+
 function nextGrid(grid) {
   const nextGrid = [];
   const wrappedGrid = wrapGrid(grid);
