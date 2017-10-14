@@ -48,4 +48,16 @@ describe("a dead cell", () => {
       expect(nextCellValue(grid, 1, 1)).toBe(0);
     });
   });
+
+  describe("with 8 live neighbors", () => {
+    it("stays dead", () => {
+      const grid = [
+        [1, 1, 1],
+        [1, 0, 1],
+        [1, 1, 1]
+      ];
+
+      expect(nextCellValue(grid, 1, 1)).toBe(0);
+    });
+  });
 });
