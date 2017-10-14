@@ -1,10 +1,10 @@
-function initialGrid(width, height) {
+function initialGrid(nRows, nCols) {
   const initialGrid = [];
 
-  for (let i = 0; i < height; i += 1) {
+  for (let i = 0; i < nRows; i += 1) {
     initialGrid.push([]);
 
-    for (let j = 0; j < width; j += 1) {
+    for (let j = 0; j < nCols; j += 1) {
       initialGrid[i][j] = randomCellValue();
     }
   }
@@ -71,4 +71,4 @@ function nextCellValue(grid, row, col) {
   }
 }
 
-export {nextGrid, nextCellValue};
+export {initialGrid, nextGrid, nextCellValue};
