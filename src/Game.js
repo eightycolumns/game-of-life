@@ -17,7 +17,7 @@ function nextCellValue(grid, row, col) {
       return 0;
     }
   } else if (grid[row][col] === 1) {
-    if (sum === 0) {
+    if (sum < 2) {
       return 0;
     }
   }
