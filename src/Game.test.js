@@ -122,4 +122,16 @@ describe("a live cell", () => {
       expect(nextCellValue(grid, 1, 1)).toBe(0);
     });
   });
+
+  describe("with 8 live neighbors", () => {
+    it("dies", () => {
+      const grid = [
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1]
+      ];
+
+      expect(nextCellValue(grid, 1, 1)).toBe(0);
+    });
+  });
 });
