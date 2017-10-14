@@ -1,6 +1,6 @@
 function nextGrid(grid) {
   const nextGrid = [];
-  const wrappedGrid = grid.map(row => row.slice());
+  const wrappedGrid = copyGrid(grid);
 
   wrappedGrid.splice(0, 0, wrappedGrid[wrappedGrid.length - 1].slice());
   wrappedGrid.push(wrappedGrid[1].slice());
@@ -19,6 +19,10 @@ function nextGrid(grid) {
   }
 
   return nextGrid;
+}
+
+function copyGrid(grid) {
+  return grid.map(row => row.slice());
 }
 
 function nextCellValue(grid, row, col) {
