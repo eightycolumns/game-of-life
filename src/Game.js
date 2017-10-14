@@ -5,11 +5,15 @@ function initialGrid(width, height) {
     initialGrid.push([]);
 
     for (let j = 0; j < width; j += 1) {
-      initialGrid[i][j] = Math.round(Math.random());
+      initialGrid[i][j] = randomCellValue();
     }
   }
 
   return initialGrid;
+}
+
+function randomCellValue() {
+  return Math.round(Math.random());
 }
 
 function nextGrid(grid) {
