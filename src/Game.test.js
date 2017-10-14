@@ -176,7 +176,7 @@ describe("a beehive", () => {
 
 describe("a blinker", () => {
   it("is a period 2 oscillator", () => {
-    const grid = [
+    const generation0 = [
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 1, 1, 1, 0],
@@ -184,7 +184,9 @@ describe("a blinker", () => {
       [0, 0, 0, 0, 0]
     ];
 
-    expect(nextGrid(grid)).toEqual([
+    const generation1 = nextGrid(generation0);
+
+    expect(generation1).toEqual([
       [0, 0, 0, 0, 0],
       [0, 0, 1, 0, 0],
       [0, 0, 1, 0, 0],
@@ -192,7 +194,9 @@ describe("a blinker", () => {
       [0, 0, 0, 0, 0]
     ]);
 
-    expect(nextGrid(nextGrid(grid))).toEqual([
+    const generation2 = nextGrid(generation1);
+
+    expect(generation2).toEqual([
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 1, 1, 1, 0],
@@ -204,7 +208,7 @@ describe("a blinker", () => {
 
 describe("a pulsar", () => {
   it("is a period 3 oscillator", () => {
-    const grid = [
+    const generation0 = [
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -224,7 +228,10 @@ describe("a pulsar", () => {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
 
-    expect(nextGrid(grid)).toEqual([
+
+    const generation1 = nextGrid(generation0);
+
+    expect(generation1).toEqual([
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
@@ -244,7 +251,9 @@ describe("a pulsar", () => {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]);
 
-    expect(nextGrid(nextGrid(grid))).toEqual([
+    const generation2 = nextGrid(generation1);
+
+    expect(generation2).toEqual([
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
@@ -264,7 +273,9 @@ describe("a pulsar", () => {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ]);
 
-    expect(nextGrid(nextGrid(nextGrid(grid)))).toEqual([
+    const generation3 = nextGrid(generation2);
+
+    expect(generation3).toEqual([
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
