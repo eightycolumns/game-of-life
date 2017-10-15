@@ -3,6 +3,7 @@ import React from "react";
 import {initialGrid, nextGrid} from "./Game";
 import Grid from "./Grid";
 import StartButton from "./StartButton";
+import StopButton from "./StopButton";
 
 class App extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends React.Component {
       <div className="App">
         <Grid nRows={this.nRows} nCols={this.nCols} grid={this.state.grid} />
         <StartButton onClick={this.startGame} />
+        <StopButton />
       </div>
     );
   }
