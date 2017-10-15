@@ -4,6 +4,7 @@ import {initialGrid, nextGrid} from "./Game";
 import Grid from "./Grid";
 import StartButton from "./StartButton";
 import StopButton from "./StopButton";
+import ResetButton from "./ResetButton";
 
 class App extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class App extends React.Component {
         <Grid nRows={this.nRows} nCols={this.nCols} grid={this.state.grid} />
         <StartButton onClick={this.startGame} />
         <StopButton onClick={this.stopGame} />
+        <ResetButton />
       </div>
     );
   }
