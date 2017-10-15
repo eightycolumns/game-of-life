@@ -1,0 +1,20 @@
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: $x-large;
+  font-weight: normal;
+}
+
+button {
+  font-family: inherit;
+  font-size: $large;
+  line-height: inherit;
+}
