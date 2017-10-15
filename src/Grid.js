@@ -3,21 +3,24 @@ import React from "react";
 class Grid extends React.Component {
   constructor(props) {
     super(props);
+
     this.cellSize = 4;
+
+    this.gridWidth = this.props.nCols * this.cellSize + this.props.nCols + 1;
+    this.gridHeight = this.props.nRows * this.cellSize + this.props.nRows + 1;
   }
 
   componentDidMount() {
-    const canvas = document.querySelector("canvas");
-
-    canvas.width = this.props.nCols * this.cellSize + this.props.nCols + 1;
-    canvas.height = this.props.nRows * this.cellSize + this.props.nRows + 1;
-
-    const context = canvas.getContext("2d");
-
-    this.paintGrid(context);
+    this.paintGrid();
   }
 
-  paintGrid(context) {
+  componentDidUpdate() {
+    this.paintGrid();
+  }
+
+  paintGrid() {
+    const context = this.refs.canvas.getContext("2d");
+
     for (let i = 0; i < this.props.nRows; i += 1) {
       for (let j = 0; j < this.props.nCols; j += 1) {
         this.paintCell(
@@ -38,7 +41,7 @@ class Grid extends React.Component {
   render() {
     return (
       <div className="Grid">
-        <canvas></canvas>
+        <canvas ref="canvas" width={this.gridWidth} height={this.gridHeight} />
       </div>
     );
   }
