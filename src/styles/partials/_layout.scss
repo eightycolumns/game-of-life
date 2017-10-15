@@ -1,0 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.Grid {
+  margin-top: $large;
+}
+
+.buttons {
+  margin-top: $large;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0 $large;
+  padding: $x-small $x-large;
+}
