@@ -1,0 +1,17 @@
+#!/bin/bash
+
+readonly SCSS=src/styles/main.scss
+readonly CSS=src/styles/main.css
+
+main() {
+  preprocess_styles "${SCSS}" "${CSS}"
+}
+
+preprocess_styles() {
+  local -r input=$1
+  local -r output=$2
+
+  node-sass-chokidar "${input}" "${output}"
+}
+
+[ "${BASH_SOURCE[0]}" == "$0" ] && main "$@"

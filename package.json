@@ -15,7 +15,8 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "start": "react-scripts start",
+    "build-styles": "scripts/build-styles",
+    "start": "npm run build-styles && react-scripts start",
     "test": "react-scripts test --env=jsdom"
   }
 }

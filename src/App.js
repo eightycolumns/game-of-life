@@ -54,10 +54,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header>
+          <h1>Conway's Game of Life</h1>
+        </header>
+
         <Grid nRows={this.nRows} nCols={this.nCols} grid={this.state.grid} />
-        <StartButton onClick={this.startGame} />
-        <StopButton onClick={this.stopGame} />
-        <ResetButton onClick={this.resetGame} />
+
+        <div className="buttons">
+          <StartButton onClick={this.startGame} />
+          <StopButton onClick={this.stopGame} />
+          <ResetButton onClick={this.resetGame} />
+        </div>
       </div>
     );
   }
