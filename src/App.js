@@ -23,6 +23,7 @@ class App extends React.Component {
     this.startGame = this.startGame.bind(this);
     this.tick = this.tick.bind(this);
     this.stopGame = this.stopGame.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   }
 
   startGame() {
@@ -42,13 +43,21 @@ class App extends React.Component {
     clearTimeout(this.state.timeoutID);
   }
 
+  resetGame() {
+    this.stopGame();
+
+    this.setState({
+      grid: initialGrid(this.nRows, this.nCols)
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Grid nRows={this.nRows} nCols={this.nCols} grid={this.state.grid} />
         <StartButton onClick={this.startGame} />
         <StopButton onClick={this.stopGame} />
-        <ResetButton />
+        <ResetButton onClick={this.resetGame} />
       </div>
     );
   }
