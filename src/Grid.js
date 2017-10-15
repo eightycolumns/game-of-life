@@ -37,7 +37,9 @@ class Grid extends React.Component {
 
   render() {
     return (
-      <canvas></canvas>
+      <div className="Grid">
+        <canvas></canvas>
+      </div>
     );
   }
 }
