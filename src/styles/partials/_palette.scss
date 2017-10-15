@@ -1,0 +1,24 @@
+body {
+  color: $charcoal;
+}
+
+canvas {
+  border: 2px solid $charcoal;
+  border-radius: $large;
+}
+
+button {
+  background-color: $charcoal;
+  border: 2px solid $charcoal;
+  border-radius: 999px;
+  color: white;
+  transition: background-color 0.15s, border 0.15s, color 0.15s;
+}
+
+button:focus,
+button:hover,
+button:active {
+  background-color: white;
+  border: 2px solid $charcoal;
+  color: $charcoal;
+}
