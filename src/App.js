@@ -1,6 +1,6 @@
 import React from "react";
 
-import {initialGrid, nextGrid} from "./Game";
+import Game from "./Game";
 import Grid from "./Grid";
 import StartButton from "./StartButton";
 import StopButton from "./StopButton";
@@ -17,7 +17,7 @@ class App extends React.Component {
     this.nCols = 162;
 
     this.state = {
-      grid: initialGrid(this.nRows, this.nCols)
+      grid: Game.initialGrid(this.nRows, this.nCols)
     };
 
     this.startGame = this.startGame.bind(this);
@@ -34,7 +34,7 @@ class App extends React.Component {
 
   tick() {
     this.setState({
-      grid: nextGrid(this.state.grid),
+      grid: Game.nextGrid(this.state.grid),
       timeoutID: setTimeout(this.tick, this.interval)
     });
   }
@@ -47,7 +47,7 @@ class App extends React.Component {
     this.stopGame();
 
     this.setState({
-      grid: initialGrid(this.nRows, this.nCols)
+      grid: Game.initialGrid(this.nRows, this.nCols)
     });
   }
 

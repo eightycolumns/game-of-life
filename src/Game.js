@@ -1,34 +1,36 @@
-function initialGrid(nRows, nCols) {
-  const initialGrid = [];
+class Game {
+  static initialGrid(nRows, nCols) {
+    const initialGrid = [];
 
-  for (let i = 0; i < nRows; i += 1) {
-    initialGrid.push([]);
+    for (let i = 0; i < nRows; i += 1) {
+      initialGrid.push([]);
 
-    for (let j = 0; j < nCols; j += 1) {
-      initialGrid[i][j] = randomCellValue();
+      for (let j = 0; j < nCols; j += 1) {
+        initialGrid[i][j] = randomCellValue();
+      }
     }
+
+    return initialGrid;
   }
 
-  return initialGrid;
+  static nextGrid(grid) {
+    const nextGrid = [];
+    const wrappedGrid = wrapGrid(grid);
+
+    for (let i = 0; i < grid.length; i += 1) {
+      nextGrid.push([]);
+
+      for (let j = 0; j < grid[i].length; j += 1) {
+        nextGrid[i][j] = nextCellValue(wrappedGrid, i + 1, j + 1);
+      }
+    }
+
+    return nextGrid;
+  }
 }
 
 function randomCellValue() {
   return Math.round(Math.random());
-}
-
-function nextGrid(grid) {
-  const nextGrid = [];
-  const wrappedGrid = wrapGrid(grid);
-
-  for (let i = 0; i < grid.length; i += 1) {
-    nextGrid.push([]);
-
-    for (let j = 0; j < grid[i].length; j += 1) {
-      nextGrid[i][j] = nextCellValue(wrappedGrid, i + 1, j + 1);
-    }
-  }
-
-  return nextGrid;
 }
 
 function wrapGrid(grid) {
@@ -71,4 +73,5 @@ function nextCellValue(grid, row, col) {
   }
 }
 
-export {initialGrid, nextGrid, nextCellValue};
+export default Game;
+export {nextCellValue};

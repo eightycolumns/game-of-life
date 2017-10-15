@@ -1,4 +1,5 @@
-import {nextGrid, nextCellValue} from "./Game";
+import Game from "./Game";
+import {nextCellValue} from "./Game";
 
 describe("a dead cell", () => {
   describe("with 0 live neighbors", () => {
@@ -145,7 +146,7 @@ describe("a block", () => {
       [0, 0, 0, 0]
     ];
 
-    expect(nextGrid(grid)).toEqual([
+    expect(Game.nextGrid(grid)).toEqual([
       [0, 0, 0, 0],
       [0, 1, 1, 0],
       [0, 1, 1, 0],
@@ -164,7 +165,7 @@ describe("a beehive", () => {
       [0, 0, 0, 0, 0, 0]
     ];
 
-    expect(nextGrid(grid)).toEqual([
+    expect(Game.nextGrid(grid)).toEqual([
       [0, 0, 0, 0, 0, 0],
       [0, 0, 1, 1, 0, 0],
       [0, 1, 0, 0, 1, 0],
@@ -184,7 +185,7 @@ describe("a blinker", () => {
       [0, 0, 0, 0, 0]
     ];
 
-    const generation1 = nextGrid(generation0);
+    const generation1 = Game.nextGrid(generation0);
 
     expect(generation1).toEqual([
       [0, 0, 0, 0, 0],
@@ -194,7 +195,7 @@ describe("a blinker", () => {
       [0, 0, 0, 0, 0]
     ]);
 
-    const generation2 = nextGrid(generation1);
+    const generation2 = Game.nextGrid(generation1);
 
     expect(generation2).toEqual([
       [0, 0, 0, 0, 0],
@@ -229,7 +230,7 @@ describe("a pulsar", () => {
     ];
 
 
-    const generation1 = nextGrid(generation0);
+    const generation1 = Game.nextGrid(generation0);
 
     expect(generation1).toEqual([
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -251,7 +252,7 @@ describe("a pulsar", () => {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]);
 
-    const generation2 = nextGrid(generation1);
+    const generation2 = Game.nextGrid(generation1);
 
     expect(generation2).toEqual([
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -273,7 +274,7 @@ describe("a pulsar", () => {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ]);
 
-    const generation3 = nextGrid(generation2);
+    const generation3 = Game.nextGrid(generation2);
 
     expect(generation3).toEqual([
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -306,7 +307,7 @@ describe("the grid", () => {
       [0, 0, 1, 0, 0]
     ];
 
-    expect(nextGrid(grid)).toEqual([
+    expect(Game.nextGrid(grid)).toEqual([
       [0, 0, 1, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
@@ -323,7 +324,7 @@ describe("the grid", () => {
       [0, 0, 0, 0]
     ];
 
-    expect(nextGrid(grid)).toEqual([
+    expect(Game.nextGrid(grid)).toEqual([
       [0, 0, 0, 0],
       [0, 0, 0, 0],
       [1, 0, 0, 1],
