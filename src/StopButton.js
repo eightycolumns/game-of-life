@@ -4,7 +4,7 @@ class StopButton extends React.Component {
   render() {
     return (
       <div className="StopButton">
-        <button>Stop</button>
+        <button onClick={this.props.onClick}>Stop</button>
       </div>
     );
   }
