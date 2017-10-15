@@ -20,20 +20,19 @@ class Grid extends React.Component {
   paintGrid(context) {
     for (let i = 0; i < this.props.nRows; i += 1) {
       for (let j = 0; j < this.props.nCols; j += 1) {
-        if (this.props.grid[i][j] === 0) {
-          context.fillStyle = "#fff";
-        } else {
-          context.fillStyle = "#333";
-        }
-
-        context.fillRect(
+        this.paintCell(
+          context,
           j * this.cellSize + j + 1,
           i * this.cellSize + i + 1,
-          this.cellSize,
-          this.cellSize
+          this.props.grid[i][j] === 0 ? "#fff" : "#333"
         );
       }
     }
+  }
+
+  paintCell(context, x, y, color) {
+    context.fillStyle = color;
+    context.fillRect(x, y, this.cellSize, this.cellSize);
   }
 
   render() {
