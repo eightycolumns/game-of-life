@@ -1,4 +1,12 @@
+import Palette from "./Palette";
 import {randomLimits, randomInteger} from "./Palette";
+
+describe("a random color", () => {
+  it("is a hexadecimal color code between #000000 and #ffffff", () => {
+    const palette = new Palette;
+    expect(palette.randomColor()).toMatch(/^#[0-9a-f]{6}$/);
+  });
+});
 
 describe("a random lower limit", () => {
   it("is less than or equal to its corresponding upper limit", () => {
