@@ -1,13 +1,11 @@
 import React from "react";
 
-class StopButton extends React.Component {
-  render() {
-    return (
-      <div className="StopButton">
-        <button onClick={this.props.onClick}>Stop</button>
-      </div>
-    );
-  }
+function StopButton(props) {
+  return (
+    <div className="StopButton">
+      <button onClick={props.onClick}>Stop</button>
+    </div>
+  );
 }
 
 export default StopButton;
