@@ -2,9 +2,10 @@ import React from "react";
 
 import Game from "./Game";
 import Grid from "./Grid";
+import Palette from "./Palette";
+import ResetButton from "./ResetButton";
 import StartButton from "./StartButton";
 import StopButton from "./StopButton";
-import ResetButton from "./ResetButton";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class App extends React.Component {
 
     this.state = {
       prevGrid: undefined,
-      grid: Game.initialGrid(this.nRows, this.nCols)
+      grid: Game.initialGrid(this.nRows, this.nCols),
+      palette: new Palette()
     };
 
     this.startGame = this.startGame.bind(this);
@@ -50,7 +52,8 @@ class App extends React.Component {
 
     this.setState({
       prevGrid: undefined,
-      grid: Game.initialGrid(this.nRows, this.nCols)
+      grid: Game.initialGrid(this.nRows, this.nCols),
+      palette: new Palette()
     });
   }
 
@@ -66,6 +69,7 @@ class App extends React.Component {
           nCols={this.nCols}
           prevGrid={this.state.prevGrid}
           grid={this.state.grid}
+          palette={this.state.palette}
         />
 
         <div className="buttons">

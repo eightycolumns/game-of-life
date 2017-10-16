@@ -23,6 +23,7 @@ class Grid extends React.Component {
     const nCols = this.props.nCols;
     const prevGrid = this.props.prevGrid;
     const grid = this.props.grid;
+    const palette = this.props.palette;
 
     const context = this.refs.canvas.getContext("2d");
 
@@ -33,7 +34,7 @@ class Grid extends React.Component {
             context,
             j * this.cellSize + j + 1,
             i * this.cellSize + i + 1,
-            grid[i][j] === 0 ? "#fff" : "#333"
+            grid[i][j] === 0 ? "#fff" : palette.randomColor()
           );
         }
       }
