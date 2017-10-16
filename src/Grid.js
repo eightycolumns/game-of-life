@@ -19,16 +19,23 @@ class Grid extends React.Component {
   }
 
   paintGrid() {
+    const nRows = this.props.nRows;
+    const nCols = this.props.nCols;
+    const prevGrid = this.props.prevGrid;
+    const grid = this.props.grid;
+
     const context = this.refs.canvas.getContext("2d");
 
-    for (let i = 0; i < this.props.nRows; i += 1) {
-      for (let j = 0; j < this.props.nCols; j += 1) {
-        this.paintCell(
-          context,
-          j * this.cellSize + j + 1,
-          i * this.cellSize + i + 1,
-          this.props.grid[i][j] === 0 ? "#fff" : "#333"
-        );
+    for (let i = 0; i < nRows; i += 1) {
+      for (let j = 0; j < nCols; j += 1) {
+        if (prevGrid === undefined || prevGrid[i][j] !== grid[i][j]) {
+          this.paintCell(
+            context,
+            j * this.cellSize + j + 1,
+            i * this.cellSize + i + 1,
+            grid[i][j] === 0 ? "#fff" : "#333"
+          );
+        }
       }
     }
   }

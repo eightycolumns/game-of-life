@@ -17,6 +17,7 @@ class App extends React.Component {
     this.nCols = 162;
 
     this.state = {
+      prevGrid: undefined,
       grid: Game.initialGrid(this.nRows, this.nCols)
     };
 
@@ -34,6 +35,7 @@ class App extends React.Component {
 
   tick() {
     this.setState({
+      prevGrid: this.state.grid,
       grid: Game.nextGrid(this.state.grid),
       timeoutID: setTimeout(this.tick, this.interval)
     });
@@ -47,6 +49,7 @@ class App extends React.Component {
     this.stopGame();
 
     this.setState({
+      prevGrid: undefined,
       grid: Game.initialGrid(this.nRows, this.nCols)
     });
   }
@@ -58,7 +61,12 @@ class App extends React.Component {
           <h1>Conway's Game of Life</h1>
         </header>
 
-        <Grid nRows={this.nRows} nCols={this.nCols} grid={this.state.grid} />
+        <Grid
+          nRows={this.nRows}
+          nCols={this.nCols}
+          prevGrid={this.state.prevGrid}
+          grid={this.state.grid}
+        />
 
         <div className="buttons">
           <StartButton onClick={this.startGame} />
