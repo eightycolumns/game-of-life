@@ -1,7 +1,7 @@
 import {shallow} from "enzyme";
 import React from "react";
 
-import StopButton from "./StopButton";
+import StopButton from "../StopButton";
 
 describe("a StopButton component", () => {
   it("renders without crashing", () => {

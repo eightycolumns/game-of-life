@@ -1,4 +1,4 @@
-import Palette, {randomLimits, randomInteger} from "./Palette";
+import Palette, {randomLimits, randomInteger} from "../Palette";
 
 describe("a random color", () => {
   it("is a hexadecimal color code between #000000 and #ffffff", () => {

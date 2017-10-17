@@ -1,7 +1,7 @@
 import {shallow} from "enzyme";
 import React from "react";
 
-import ResetButton from "./ResetButton";
+import ResetButton from "../ResetButton";
 
 describe("a ResetButton component", () => {
   it("renders without crashing", () => {

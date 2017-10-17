@@ -1,9 +1,9 @@
 import {render} from "enzyme";
 import React from "react";
 
-import Game from "./Game";
-import Grid from "./Grid";
-import Palette from "./Palette";
+import Game from "../Game";
+import Grid from "../Grid";
+import Palette from "../Palette";
 
 describe("a Grid component", () => {
   it("renders without crashing", () => {

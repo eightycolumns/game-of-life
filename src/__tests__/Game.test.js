@@ -1,4 +1,4 @@
-import Game, {nextCellValue} from "./Game";
+import Game, {nextCellValue} from "../Game";
 
 describe("a dead cell", () => {
   describe("with 0 live neighbors", () => {
