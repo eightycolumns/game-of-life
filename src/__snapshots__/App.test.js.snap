@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`a App component renders correctly 1`] = `
+exports[`an App component renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {

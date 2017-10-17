@@ -1,12 +1,7 @@
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import {shallow} from "enzyme";
 import React from "react";
 
 import StartButton from "./StartButton";
-
-Enzyme.configure({
-  adapter: new Adapter()
-});
 
 describe("a StartButton component", () => {
   it("renders correctly", () => {
