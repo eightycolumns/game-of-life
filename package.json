@@ -17,7 +17,7 @@
     "node-sass-chokidar": "0.0.3"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build": "npm run build-styles && react-scripts build",
     "build-styles": "scripts/build-styles",
     "start": "npm run build-styles && react-scripts start",
     "test": "react-scripts test --env=jsdom"
