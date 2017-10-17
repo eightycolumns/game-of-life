@@ -6,17 +6,17 @@
 
   Node 6.11.4 LTS and NPM 3.10.10
 
-## Build Image
+## Build App
 
   `npm run build`
 
-## Serve Build
+## Serve App
 
   `npm install -g serve && serve -s build`
 
   Then play the Game of Life at [http://localhost:5000](http://localhost:5000).
 
-## Test
+## Test App
 
   `npm test`
 
