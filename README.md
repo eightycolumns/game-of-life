@@ -8,7 +8,7 @@
 
 ## Build App
 
-  `npm run build`
+  `npm install && npm run build`
 
 ## Serve App
 
