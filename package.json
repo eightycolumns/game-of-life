@@ -8,10 +8,13 @@
   },
   "private": true,
   "dependencies": {
-    "node-sass-chokidar": "0.0.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
+  },
+  "devDependencies": {
+    "enzyme-adapter-react-16": "^1.0.1",
+    "node-sass-chokidar": "0.0.3"
   },
   "scripts": {
     "build": "react-scripts build",
