@@ -34,7 +34,7 @@ class Grid extends React.Component {
             context,
             j * this.cellSize + j + 1,
             i * this.cellSize + i + 1,
-            grid[i][j] === 0 ? "#fff" : palette.randomColor()
+            grid[i][j] === 0 ? "#ffffff" : palette.randomColor()
           );
         }
       }
