@@ -1,6 +1,8 @@
 # Game of Life
 
-  An implementation of Conway's Game of Life as a React app.
+  An implementation of Conway's classic cellular automaton as a React app,
+  test-driven with Jest. A new color scheme is randomly generated for each run
+  of the game, resulting in a kaleidoscopic Game of Life.
 
 ## Prerequisites
 
