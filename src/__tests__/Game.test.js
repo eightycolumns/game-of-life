@@ -145,12 +145,7 @@ describe("a block", () => {
       [0, 0, 0, 0]
     ];
 
-    expect(Game.nextGrid(grid)).toEqual([
-      [0, 0, 0, 0],
-      [0, 1, 1, 0],
-      [0, 1, 1, 0],
-      [0, 0, 0, 0]
-    ]);
+    expect(Game.nextGrid(grid)).toEqual(grid);
   });
 });
 
@@ -164,13 +159,7 @@ describe("a beehive", () => {
       [0, 0, 0, 0, 0, 0]
     ];
 
-    expect(Game.nextGrid(grid)).toEqual([
-      [0, 0, 0, 0, 0, 0],
-      [0, 0, 1, 1, 0, 0],
-      [0, 1, 0, 0, 1, 0],
-      [0, 0, 1, 1, 0, 0],
-      [0, 0, 0, 0, 0, 0]
-    ]);
+    expect(Game.nextGrid(grid)).toEqual(grid);
   });
 });
 
