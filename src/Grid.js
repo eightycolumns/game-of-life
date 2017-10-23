@@ -1,13 +1,13 @@
 import React from "react";
 
+const CELL_SIZE = 4;
+
 class Grid extends React.Component {
   constructor(props) {
     super(props);
 
-    this.cellSize = 4;
-
-    this.gridWidth = this.props.nCols * this.cellSize + this.props.nCols + 1;
-    this.gridHeight = this.props.nRows * this.cellSize + this.props.nRows + 1;
+    this.gridWidth = this.props.nCols * CELL_SIZE + this.props.nCols + 1;
+    this.gridHeight = this.props.nRows * CELL_SIZE + this.props.nRows + 1;
   }
 
   componentDidMount() {
@@ -21,9 +21,9 @@ class Grid extends React.Component {
   paintGrid() {
     const nRows = this.props.nRows;
     const nCols = this.props.nCols;
+    const palette = this.props.palette;
     const prevGrid = this.props.prevGrid;
     const grid = this.props.grid;
-    const palette = this.props.palette;
 
     const context = this.refs.canvas.getContext("2d");
 
@@ -32,8 +32,8 @@ class Grid extends React.Component {
         if (prevGrid === undefined || prevGrid[i][j] !== grid[i][j]) {
           this.paintCell(
             context,
-            j * this.cellSize + j + 1,
-            i * this.cellSize + i + 1,
+            j * CELL_SIZE + j + 1,
+            i * CELL_SIZE + i + 1,
             grid[i][j] === 0 ? "#ffffff" : palette.randomColor()
           );
         }
@@ -43,7 +43,7 @@ class Grid extends React.Component {
 
   paintCell(context, x, y, color) {
     context.fillStyle = color;
-    context.fillRect(x, y, this.cellSize, this.cellSize);
+    context.fillRect(x, y, CELL_SIZE, CELL_SIZE);
   }
 
   render() {

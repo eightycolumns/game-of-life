@@ -7,20 +7,28 @@ import ResetButton from "./ResetButton";
 import StartButton from "./StartButton";
 import StopButton from "./StopButton";
 
+const FRAME_RATE = 24;
+const INTERVAL = 1000 / FRAME_RATE;
+
+const N_ROWS = 100;
+const N_COLS = 162;
+
+const GameStatus = {
+  STOPPED: 0,
+  STARTED: 1
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.frameRate = 24;
-    this.interval = 1000 / this.frameRate;
+    this.gameStatus = GameStatus.STOPPED;
 
-    this.nRows = 100;
-    this.nCols = 162;
+    this.palette = new Palette();
 
     this.state = {
       prevGrid: undefined,
-      grid: Game.initialGrid(this.nRows, this.nCols),
-      palette: new Palette()
+      grid: Game.initialGrid(N_ROWS, N_COLS)
     };
 
     this.startGame = this.startGame.bind(this);
@@ -30,30 +38,36 @@ class App extends React.Component {
   }
 
   startGame() {
-    this.setState({
-      timeoutID: setTimeout(this.tick, this.interval)
-    });
+    if (this.gameStatus === GameStatus.STOPPED) {
+      this.timeoutID = setTimeout(this.tick, INTERVAL);
+      this.gameStatus = GameStatus.STARTED;
+    }
   }
 
   tick() {
     this.setState({
       prevGrid: this.state.grid,
-      grid: Game.nextGrid(this.state.grid),
-      timeoutID: setTimeout(this.tick, this.interval)
+      grid: Game.nextGrid(this.state.grid)
     });
+
+    this.timeoutID = setTimeout(this.tick, INTERVAL);
   }
 
   stopGame() {
-    clearTimeout(this.state.timeoutID);
+    if (this.gameStatus === GameStatus.STARTED) {
+      clearTimeout(this.timeoutID);
+      this.gameStatus = GameStatus.STOPPED;
+    }
   }
 
   resetGame() {
     this.stopGame();
 
+    this.palette = new Palette();
+
     this.setState({
       prevGrid: undefined,
-      grid: Game.initialGrid(this.nRows, this.nCols),
-      palette: new Palette()
+      grid: Game.initialGrid(N_ROWS, N_COLS)
     });
   }
 
@@ -65,11 +79,11 @@ class App extends React.Component {
         </header>
 
         <Grid
-          nRows={this.nRows}
-          nCols={this.nCols}
+          nRows={N_ROWS}
+          nCols={N_COLS}
+          palette={this.palette}
           prevGrid={this.state.prevGrid}
           grid={this.state.grid}
-          palette={this.state.palette}
         />
 
         <div className="buttons">
