@@ -3,9 +3,14 @@ import React from "react";
 function StopButton(props) {
   return (
     <div className="StopButton">
-      <button onClick={props.onClick}>Stop</button>
+      <button onClick={onClick}>Stop</button>
     </div>
   );
+
+  function onClick() {
+    props.onClick();
+    document.activeElement.blur();
+  }
 }
 
 export default StopButton;
